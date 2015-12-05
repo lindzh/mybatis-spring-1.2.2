@@ -118,7 +118,7 @@ public final class MapperFactoryBeanTest extends AbstractMyBatisSpringTest {
   @Test
   public void testWithNonSpringTransactionFactory() throws Exception {
     Environment original = sqlSessionFactory.getConfiguration().getEnvironment();
-    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), dataSource);
+    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), dataSource,null);
     sqlSessionFactory.getConfiguration().setEnvironment(nonSpring);
 
     try {
@@ -138,7 +138,7 @@ public final class MapperFactoryBeanTest extends AbstractMyBatisSpringTest {
   @Test(expected = TransientDataAccessResourceException.class)
   public void testNonSpringTxMgrWithTx() throws Exception {
     Environment original = sqlSessionFactory.getConfiguration().getEnvironment();
-    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), dataSource);
+    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), dataSource,null);
     sqlSessionFactory.getConfiguration().setEnvironment(nonSpring);
 
     TransactionStatus status = null;
@@ -165,7 +165,7 @@ public final class MapperFactoryBeanTest extends AbstractMyBatisSpringTest {
     MockDataSource mockDataSource = new MockDataSource();
     mockDataSource.setupConnection(createMockConnection());
 
-    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), mockDataSource);
+    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), mockDataSource,null);
     sqlSessionFactory.getConfiguration().setEnvironment(nonSpring);
 
     SqlSessionTemplate sqlSessionTemplate = new SqlSessionTemplate(sqlSessionFactory);

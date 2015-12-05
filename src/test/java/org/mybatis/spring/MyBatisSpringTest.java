@@ -142,7 +142,7 @@ public final class MyBatisSpringTest extends AbstractMyBatisSpringTest {
   @Test
   public void testWithNonSpringTransactionFactory() {
     Environment original = sqlSessionFactory.getConfiguration().getEnvironment();
-    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), dataSource);
+    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), dataSource,null);
     sqlSessionFactory.getConfiguration().setEnvironment(nonSpring);
 
     try {
@@ -164,7 +164,7 @@ public final class MyBatisSpringTest extends AbstractMyBatisSpringTest {
   @Test(expected = TransientDataAccessResourceException.class)
   public void testNonSpringTxFactoryWithTx() throws Exception {
     Environment original = sqlSessionFactory.getConfiguration().getEnvironment();
-    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), dataSource);
+    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), dataSource,null);
     sqlSessionFactory.getConfiguration().setEnvironment(nonSpring);
 
     TransactionStatus status = null;
@@ -192,7 +192,7 @@ public final class MyBatisSpringTest extends AbstractMyBatisSpringTest {
     MockDataSource mockDataSource = new MockDataSource();
     mockDataSource.setupConnection(createMockConnection());
 
-    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), mockDataSource);
+    Environment nonSpring = new Environment("non-spring", new JdbcTransactionFactory(), mockDataSource,null);
     sqlSessionFactory.getConfiguration().setEnvironment(nonSpring);
 
     TransactionStatus status = null;
@@ -303,7 +303,7 @@ public final class MyBatisSpringTest extends AbstractMyBatisSpringTest {
     MockDataSource mockDataSource = new MockDataSource();
     mockDataSource.setupConnection(createMockConnection());
 
-    Environment nonSpring = new Environment("non-spring", new ManagedTransactionFactory(), mockDataSource);
+    Environment nonSpring = new Environment("non-spring", new ManagedTransactionFactory(), mockDataSource,null);
     sqlSessionFactory.getConfiguration().setEnvironment(nonSpring);
 
     JtaTransactionManager jtaManager = new JtaTransactionManager(new MockUserTransaction());
