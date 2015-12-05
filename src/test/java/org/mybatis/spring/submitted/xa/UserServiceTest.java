@@ -24,8 +24,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(value = SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:org/mybatis/spring/submitted/xa/applicationContext.xml")
+//@RunWith(value = SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = "classpath:org/mybatis/spring/submitted/xa/applicationContext.xml")
 public class UserServiceTest {
 
   @Autowired UserTransaction userTransaction;
