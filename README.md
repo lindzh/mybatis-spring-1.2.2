@@ -1,3 +1,5 @@
+![aaa](https://camo.githubusercontent.com/196d30052623ff7b233765c5f641dbc8ae2f287d/687474703a2f2f6d7962617469732e6769746875622e696f2f696d616765732f6d7962617469732d6c6f676f2e706e67)
+
 ##info
 >MyBatis-Spring is an easy-to-use Spring3 bridge for MyBatis sql mapping framework.
 See the docs in: http://mybatis.github.com/spring
@@ -5,7 +7,7 @@ Download sources, jars and bundles from: http://repo1.maven.org/maven2/org/mybat
 
 ###更新说明：
 * 加入可配置 mapperProxy
-* 加入dao缓存支持，方便分库分表，仅支持简单查询，不支持join
+* 加入dao层注解配置缓存支持，方便分库分表，仅支持简单查询，不支持join
 
 ###使用缓存解决问题
 >大数据环境下，分库分表，都是简单查询，缓存Key的生成机制是业务自己生成，
