@@ -8,12 +8,12 @@ Download sources, jars and bundles from: http://repo1.maven.org/maven2/org/mybat
 * 加入dao缓存支持，方便分库分表，仅支持简单查询，不支持join
 
 ###使用全注解加缓存Example
-[订单Dao层定义](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/dao/OrderInfoDao.java)
-[订单Dao层SQL mybatis xml](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/mapping/OrderInfoDao.xml)
-[订单POJO定义](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/pojo/OrderInfo.java)
-[缓存Redis与mybatis proxy配置](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/xml/spring-mybatis.xml)
-[使用JAVAbean注解自动生成Dao和mybatis xml文件](https://github.com/lindzh/mybatis-generator)
-[缓存注解依赖mybatis版本--分支3.2.x](https://github.com/lindzh/mybatis-3)
+* [订单Dao层定义](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/dao/OrderInfoDao.java)
+* [订单Dao层SQL mybatis xml](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/mapping/OrderInfoDao.xml)
+* [订单POJO定义](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/pojo/OrderInfo.java)
+* [缓存Redis与mybatis proxy配置](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/xml/spring-mybatis.xml)
+* [使用JAVAbean注解自动生成Dao和mybatis xml文件](https://github.com/lindzh/mybatis-generator)
+* [缓存注解依赖mybatis版本--分支3.2.x](https://github.com/lindzh/mybatis-3)
 
 ###Dao层添加使用原理与教程
 ```java
