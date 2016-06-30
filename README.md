@@ -22,7 +22,7 @@ Download sources, jars and bundles from: http://repo1.maven.org/maven2/org/mybat
 * [订单POJO定义](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/pojo/OrderInfo.java)
 * [缓存Redis与mybatis proxy配置](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/xml/spring-mybatis.xml)
 * [使用JAVAbean注解自动生成Dao和mybatis xml文件](https://github.com/lindzh/mybatis-generator)
-* [缓存注解依赖mybatis版本--分支3.2.x](https://github.com/lindzh/mybatis-3)
+* [缓存注解依赖mybatis版本--分支3.2.x](https://github.com/lindzh/mybatis-3/tree/3.2.x)
 
 ###Dao层添加使用原理与教程
 ```java
