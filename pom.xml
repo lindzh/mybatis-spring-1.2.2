@@ -30,6 +30,7 @@
     <findbugs.onlyAnalyze>org.mybatis.spring.*,org.mybatis.spring.mapper.*,org.mybatis.spring.support.*,org.mybatis.spring.transaction.*</findbugs.onlyAnalyze>
     <spring.version>3.2.15.RELEASE</spring.version>
     <clirr.comparisonVersion>1.2.1</clirr.comparisonVersion>
+    <fasterxml.version>2.2.0</fasterxml.version>
     <gcu.product>Spring</gcu.product>
     <osgi.import>org.springframework.batch.*;resolution:=optional,*</osgi.import>
     <osgi.dynamicImport>*</osgi.dynamicImport>
@@ -37,18 +38,61 @@
 
   <dependencies>
     <!-- Compile dependencies -->
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis</artifactId>
-      <version>3.2.9-meta</version>
-      <scope>provided</scope>
-    </dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${fasterxml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${fasterxml.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${fasterxml.version}</version>
+		</dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
       <version>${spring.version}</version>
       <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+		<groupId>com.linda.common</groupId>
+		<artifactId>mybatis-generator</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
+		<exclusions>
+			<exclusion>
+				<groupId>com.linda.framework</groupId>
+				<artifactId>common-log</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>org.freemarker</groupId>
+				<artifactId>freemarker</artifactId>
+			</exclusion>
+		</exclusions>
+    </dependency>
+    
+    <dependency>
+		    <groupId>org.mybatis</groupId>
+		  <artifactId>mybatis</artifactId>
+		  <version>3.2.14-a</version>
     </dependency>
 
     <dependency>
@@ -57,6 +101,14 @@
       <version>2.2.2.RELEASE</version>
       <scope>provided</scope>
     </dependency>
+    
+	<dependency>
+		<groupId>redis.clients</groupId>
+		<artifactId>jedis</artifactId>
+		<version>2.5.2</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
 
     <!-- Test dependencies -->
 
