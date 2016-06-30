@@ -1,10 +1,11 @@
-MyBatis-Spring is an easy-to-use Spring3 bridge for MyBatis sql mapping framework.
+##info
+>MyBatis-Spring is an easy-to-use Spring3 bridge for MyBatis sql mapping framework.
 See the docs in: http://mybatis.github.com/spring
 Download sources, jars and bundles from: http://repo1.maven.org/maven2/org/mybatis/mybatis-spring/
 
 ###更新说明：
-1.加入可配置 mapperProxy
-2.加入dao缓存支持，方便分库分表，仅支持简单查询，不支持join
+* 加入可配置 mapperProxy
+* 加入dao缓存支持，方便分库分表，仅支持简单查询，不支持join
 
 ###Dao层添加使用原理与教程
 ```java
@@ -91,6 +92,3 @@ public TeamInfo getByPartnerIdAndBaokuan(@Param("partner_id")long partnerId, @Pa
 public List<TeamInfo> getListByPartnerIdAndBaokuan(List<Map<String,Object>> partnerAndExpireTimes);
 ```
 >对于上述查询，multiselect会使用prefix和key组成cache组，找到key和prefix一样的单个select，生成单个select的多个cachekey集合，先从缓存中获取，获取不到的从db获取
-
-###QQ 839861706
-喜欢就给个赞，欢迎支持开源
