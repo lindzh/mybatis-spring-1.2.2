@@ -7,6 +7,14 @@ Download sources, jars and bundles from: http://repo1.maven.org/maven2/org/mybat
 * 加入可配置 mapperProxy
 * 加入dao缓存支持，方便分库分表，仅支持简单查询，不支持join
 
+###使用全注解加缓存Example
+[订单Dao层定义](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/dao/OrderInfoDao.java)
+[订单Dao层SQL mybatis xml](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/mapping/OrderInfoDao.xml)
+[订单POJO定义](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/pojo/OrderInfo.java)
+[缓存Redis与mybatis proxy配置](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/xml/spring-mybatis.xml)
+[使用JAVAbean注解自动生成Dao和mybatis xml文件](https://github.com/lindzh/mybatis-generator)
+[缓存注解依赖mybatis版本--分支3.2.x](https://github.com/lindzh/mybatis-3)
+
 ###Dao层添加使用原理与教程
 ```java
 @RedisCache(operate=OperateType.SELECT,key="id",prefix="user_",refKey="id",refPrefix="user_")
@@ -92,3 +100,7 @@ public TeamInfo getByPartnerIdAndBaokuan(@Param("partner_id")long partnerId, @Pa
 public List<TeamInfo> getListByPartnerIdAndBaokuan(List<Map<String,Object>> partnerAndExpireTimes);
 ```
 >对于上述查询，multiselect会使用prefix和key组成cache组，找到key和prefix一样的单个select，生成单个select的多个cachekey集合，先从缓存中获取，获取不到的从db获取
+
+#QQ 839861706
+>喜欢就给个赞，欢迎支持开源
+
