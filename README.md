@@ -91,3 +91,6 @@ public TeamInfo getByPartnerIdAndBaokuan(@Param("partner_id")long partnerId, @Pa
 public List<TeamInfo> getListByPartnerIdAndBaokuan(List<Map<String,Object>> partnerAndExpireTimes);
 ```
 >对于上述查询，multiselect会使用prefix和key组成cache组，找到key和prefix一样的单个select，生成单个select的多个cachekey集合，先从缓存中获取，获取不到的从db获取
+
+###QQ 839861706
+喜欢就给个赞，欢迎支持开源
