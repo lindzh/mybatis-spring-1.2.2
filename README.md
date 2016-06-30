@@ -7,6 +7,15 @@ Download sources, jars and bundles from: http://repo1.maven.org/maven2/org/mybat
 * 加入可配置 mapperProxy
 * 加入dao缓存支持，方便分库分表，仅支持简单查询，不支持join
 
+###使用缓存解决问题
+>大数据环境下，分库分表，都是简单查询，缓存Key的生成机制是业务自己生成，
+而不是依赖底层mybatis的缓存机制，很多项目的dao层都是两层，第一层是和mysql
+交互的部分，第二层是业务自己加的缓存，需要硬编码写代码，另外，需要手动
+清理缓存，如果忘记清理关键key，数据可能不一致，使用注解的方式加缓存，
+在所有更新或者添加时，删除更新了的缓存数据，方便获取最新数据，另外，
+还可以依赖其他系统，比如后台是php的，更新了db之后，把table中的数据
+同步过来，缓存也会清除。
+
 ###使用全注解加缓存Example
 * [订单Dao层定义](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/dao/OrderInfoDao.java)
 * [订单Dao层SQL mybatis xml](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/cache/mapping/OrderInfoDao.xml)
@@ -101,6 +110,13 @@ public List<TeamInfo> getListByPartnerIdAndBaokuan(List<Map<String,Object>> part
 ```
 >对于上述查询，multiselect会使用prefix和key组成cache组，找到key和prefix一样的单个select，生成单个select的多个cachekey集合，先从缓存中获取，获取不到的从db获取
 
-#QQ 839861706
->喜欢就给个赞，欢迎支持开源
+##项目使用情况
+>在生产环境已经大量使用的公司
+* 网易
+* 快的打车
+* 爱到家
+
+##欢迎在你的项目中使用该缓存
+>喜欢就给个赞，拥抱开源，贡献开源
+联系方式 QQ：839861706  Email : linsony0@163.com
 
