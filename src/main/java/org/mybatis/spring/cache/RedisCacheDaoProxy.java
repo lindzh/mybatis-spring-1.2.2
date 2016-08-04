@@ -19,6 +19,7 @@ import org.apache.ibatis.binding.MapperProxy;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.mybatis.spring.cache.RedisCacheService.NullObject;
+import org.mybatis.spring.datasource.DataSourceContextHolder;
 
 import com.linda.common.mybatis.generator.annotation.Table;
 
@@ -964,7 +965,23 @@ public class RedisCacheDaoProxy extends MapperDelegateProxy implements CacheChan
 			sb.append("]");
 			bizLogger.info(sb.toString());
 		}
-		return this.doInvoke(mapper, proxy, method, args);
+		
+		// 加入数据源选择配置
+		Class<?> mapperClass = this.initIfNotInited(mapper.getMapperInterface());
+		Table table = mapperClass.getAnnotation(Table.class);
+		if(table!=null){
+			if(table.datasource().equalsIgnoreCase("default")){
+				DataSourceContextHolder.setContextType(DataSourceContextHolder.DATA_SOURCE_MAIN);
+			}else{
+				DataSourceContextHolder.setContextType(table.datasource());
+			}
+		}else{
+			DataSourceContextHolder.setContextType(DataSourceContextHolder.DATA_SOURCE_MAIN);
+		}try{
+			return this.doInvoke(mapper, proxy, method, args);
+		}finally{
+			DataSourceContextHolder.setContextType(DataSourceContextHolder.DATA_SOURCE_MAIN);
+		}
 	}
 	
 	private Object getFromMysql(MapperProxy mapper, Object proxy, Method method, Object[] args,RedisCache redisCache) throws Throwable {
