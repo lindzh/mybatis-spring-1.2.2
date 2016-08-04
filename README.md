@@ -112,6 +112,11 @@ public List<TeamInfo> getListByPartnerIdAndBaokuan(List<Map<String,Object>> part
 ```
 >对于上述查询，multiselect会使用prefix和key组成cache组，找到key和prefix一样的单个select，生成单个select的多个cachekey集合，先从缓存中获取，获取不到的从db获取
 
+##多数据源支持
+基于Dao层接口注解配置选择数据源，不用手动选择
+* [Dao层配置Example](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/datasource/dao/StatKopInfoDao.java
+* [mybatis spring配置](https://github.com/lindzh/mybatis-spring-1.2.2/blob/master/src/test/java/org/mybatis/spring/datasource/conf/spring-mybatis.xml)* [注解mybatis代码自动生成器](https://github.com/lindzh/mybatis-generator)
+
 ##项目使用情况
 >在生产环境已经大量使用的公司
 * 网易
