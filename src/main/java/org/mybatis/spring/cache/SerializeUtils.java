@@ -8,8 +8,6 @@ import java.io.ObjectOutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import org.apache.log4j.Logger;
-
 /**
  * 
  * @author lindezhi
@@ -17,7 +15,7 @@ import org.apache.log4j.Logger;
  */
 public class SerializeUtils {
 
-	private static final Logger logger = Logger.getLogger("mybatis_cache");
+//	private static final Logger logger = Logger.getLogger("mybatis_cache");
 
 	public static byte[] zip(byte[] bytes){
 		if(bytes!=null&&bytes.length>0){
